@@ -11,21 +11,22 @@ class ConversationsController < ApplicationController
 
   def close
     @conversation = Conversation.find(params[:id])
-    # remove conversation_id from the session
+ 
     session[:conversations].delete(@conversation.id)
-    # and closes a window on frontend
+ 
     respond_to do |format|
       format.js
     end
   end
 
   private
-  def add_to_conversations
-    session[:conversations] ||= []
-    session[:conversations] << @conversation.id
-  end
-
-  def conversated?
-    session[:conversations].include?(@conversation.id)
-  end
-end
+  
+   def add_to_conversations
+     session[:conversations] ||= []
+     session[:conversations] << @conversation.id
+   end
+  
+   def conversated?
+     session[:conversations].include?(@conversation.id)
+   end
+ end
