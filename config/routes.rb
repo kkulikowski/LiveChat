@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'home#index'
+  get '/users', to: 'users#index'
+  resources :users, :only => [:index, :show, :edit, :update ]
   get '/chat', to: 'chat#index'
   scope :chat do
     resources :conversations, only: [:create] do

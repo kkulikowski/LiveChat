@@ -1,0 +1,14 @@
+<%= render 'partials/nav' %>
+
+<div class="container">
+  <div class="row">
+    <h1>User List</h1>
+  </div>
+  <div class="row">
+    <ul class="list-group">
+      <% @users.each do |user| %>
+        <%= render user, user: user %>
+      <% end %>
+    </ul>
+  </div>
+</div>
