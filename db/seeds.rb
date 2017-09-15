@@ -13,6 +13,21 @@ password = 'q1w2e3R$'
   User.create(
     email: "user-#{i}@example.com",
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    role: 0
   )
 end
+1.upto(5) do |i|
+  User.create(
+    email: "trainer-#{i}@example.com",
+    password: password,
+    password_confirmation: password,
+    role: 1
+  )
+end
+User.create(
+  email: "admin@example.com",
+  password: password,
+  password_confirmation: password,
+  role: 2
+)
